@@ -106,7 +106,7 @@ export default function Home() {
       <main className="max-w-6xl mx-auto px-4 py-8">
         {/* Hero */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">The Homebrew for AI Agents</h1>
+          <h1 className="text-4xl font-bold mb-4">The Package Manager for AI Agents</h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Browse and install MCP servers and AI skills for Claude, Codex, Cursor, and more.
           </p>
