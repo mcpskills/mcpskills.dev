@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MCPSkills
 
-## Getting Started
+The Package Manager for AI Agents - npm/pip for AI agents.
 
-First, run the development server:
+**Website:** [https://mcpskills.pages.dev](https://mcpskills.pages.dev)
+
+## What is MCPSkills?
+
+MCPSkills is a unified registry for:
+- **Skills** - Prompt-based capabilities for AI agents (Claude Code, Cursor, Windsurf, etc.)
+- **MCP Servers** - Model Context Protocol servers that extend AI agent capabilities
+
+## Quick Start
+
+### 1. Install the CLI tools
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install -g skill-get mcp-get
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install a skill
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+skill-get install pdf
+skill-get install code-review
+skill-get install frontend-design
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Install an MCP server
 
-## Learn More
+```bash
+mcp-get install github
+mcp-get install filesystem
+mcp-get install memory
+```
 
-To learn more about Next.js, take a look at the following resources:
+## CLI Tools
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### skill-get
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Install and manage AI skills for Claude Code and other AI agents.
 
-## Deploy on Vercel
+```bash
+skill-get install <name>    # Install a skill
+skill-get search <query>    # Search for skills
+skill-get list              # List installed skills
+skill-get remove <name>     # Remove a skill
+skill-get info <name>       # Show skill details
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### mcp-get
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Install and manage MCP servers for Claude Desktop.
+
+```bash
+mcp-get install <name>      # Install an MCP server
+mcp-get search <query>      # Search for servers
+mcp-get list                # List installed servers
+mcp-get remove <name>       # Remove a server
+mcp-get info <name>         # Show server details
+```
+
+## API
+
+The MCPSkills API is available at `https://api.mcpskills.dev/api/v1`
+
+### Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `GET /skills` | List all skills |
+| `GET /skills/:name` | Get skill details |
+| `GET /mcp` | List all MCP servers |
+| `GET /mcp/:name` | Get MCP server details |
+| `GET /search?q=<query>` | Search packages |
+
+## Development
+
+This is a Next.js application deployed on Cloudflare Pages.
+
+### Prerequisites
+
+- Node.js 18+
+- npm or bun
+
+### Setup
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Deploy to Cloudflare Pages
+npx @cloudflare/next-on-pages
+npx wrangler pages deploy .vercel/output/static --project-name mcpskills
+```
+
+## Project Structure
+
+```
+mcpskills/
+├── mcpskills.dev/          # This repo - website frontend
+├── skill-get/              # Skills CLI tool
+├── mcp-get/                # MCP servers CLI tool
+├── mcpskills-plugin/       # Claude Code plugin
+└── registry-api/           # Cloudflare Worker API
+```
+
+## Links
+
+- **Website:** [mcpskills.pages.dev](https://mcpskills.pages.dev)
+- **API:** [api.mcpskills.dev](https://api.mcpskills.dev/api/v1)
+- **skill-get on npm:** [npmjs.com/package/skill-get](https://npmjs.com/package/skill-get)
+- **mcp-get on npm:** [npmjs.com/package/mcp-get](https://npmjs.com/package/mcp-get)
+- **GitHub:** [github.com/mcpskills](https://github.com/mcpskills)
+
+## License
+
+MIT
