@@ -108,7 +108,7 @@ export default function Home() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">The Package Manager for AI Agents</h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Browse and install MCP servers and AI skills for Claude, Codex, Cursor, and more.
+            npm/pip for AI agents. Install MCP servers and skills with a single command.
           </p>
         </div>
 
